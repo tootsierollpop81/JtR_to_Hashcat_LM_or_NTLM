@@ -5,6 +5,7 @@
 $blanklmhash = "aad3b435b51404eeaad3b435b51404ee"
 $lmhashes = @()
 $ntlmhashes = @()
+$ntlmhasheswlm = @()
 $hasheslist = Get-Content hashes.txt
 
 ForEach($JtRhash in $hasheslist){
@@ -14,6 +15,7 @@ ForEach($JtRhash in $hasheslist){
     #the LM hashes that aren't that blank password to the $lmhashes array.
     If (!($JtRhashArray[2] -eq $blanklmhash)){
         $lmhashes += $JtRhashArray[0] + ":" + JtRhashArray[2]
+        $ntlmhasheswlm += $JtRhashArray[0] + ":" + JtRhashArray[3]
     }
     #otherwise, add the password to the $ntlmhashes array.
     Else{
@@ -22,4 +24,5 @@ ForEach($JtRhash in $hasheslist){
 #output the lm hashes and ntlm hashes to files.
 $lmhashes | Out-File lmhashes.txt
 $ntlmhashes | Out-File ntlmhashes.txt
+$ntlmhasheswlm | Out-File ntlmhasheswlm.txt
 }

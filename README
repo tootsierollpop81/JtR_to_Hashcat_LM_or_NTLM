@@ -1,0 +1,3 @@
+README
+
+Afther the output files are made.  In hashcat, you must use the --username switch in hashcat.  For the lm hashes, you should use -m 3000.  For ntlm, you should use -m 1000.

@@ -1,0 +1,21 @@
+$blanklmhash = "aad3b435b51404eeaad3b435b51404ee"
+$lmhashes = @()
+$ntlmhashes = @()
+$hasheslist = Get-Content hashes.txt
+
+ForEach($JtRhash in $hasheslist){
+    $JtRhashArray = $JtRhash.split(':')
+    #if the LM hash is that blank hash in the hashes file, it means that LM is either disabled or
+    #the password is greater than 14 digits.  LM can't handle more than 14 digits.  So, add 
+    #the LM hashes that aren't that blank password to the $lmhashes array.
+    If (!($JtRhashArray[2] -eq $blanklmhash)){
+        $lmhashes += $JtRhashArray[0] + ":" + JtRhashArray[2]
+    }
+    #otherwise, add the password to the $ntlmhashes array.
+    Else{
+        $ntlmhashes += $JtRhashArray[0] + ":" + JtRhashArray[3]
+    }
+#output the lm hashes and ntlm hashes to files.
+$lmhashes | Out-File lmhashes.txt
+$ntlmhashes | Out-File ntlmhashes.txt
+}

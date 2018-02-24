@@ -2,4 +2,4 @@ README
 
 For JtR_to_Hashcat_LM_or_NTLM script:  After the output files are made.  In hashcat, you must use the --username switch.  For the lm hashes, you should use -m 3000.  For ntlm, you should use -m 1000.
 
-Unique Count of Passwords:  Uses hashtables to count the unique instances of passwords in a text file that is username:password formatted.
+Count_Number_of_Unique_Passwords:  Uses hashtables to count the unique instances of passwords in a text file that is username:password formatted.

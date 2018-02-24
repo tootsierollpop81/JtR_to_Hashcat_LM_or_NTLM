@@ -21,8 +21,8 @@ ForEach($JtRhash in $hasheslist){
     Else{
         $ntlmhashes += $JtRhashArray[0] + ":" + JtRhashArray[3]
     }
+}
 #output the lm hashes and ntlm hashes to files.
 $lmhashes | Out-File lmhashes.txt
 $ntlmhashes | Out-File ntlmhashes.txt
 $ntlmhasheswlm | Out-File ntlmhasheswlm.txt
-}
